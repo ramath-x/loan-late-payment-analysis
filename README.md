@@ -136,4 +136,11 @@ CREATE PROCEDURE get_arrears_history () BEGIN
 	DELIMITER;
 ```
 
+3. เรียกใช้ get_arrears_history () ที่สร้างเพื่อดูผลลัพธ์:
+
+```sql
+CALL get_arrears_history
+
+```
+
 ## อธิบาย SQL
