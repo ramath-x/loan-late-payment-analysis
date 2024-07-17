@@ -8,7 +8,26 @@
 2. คำนวณจำนวนวันทั้งหมดที่แต่ละเงินกู้มีการชำระล่าช้า
 3. หาจำนวนวันสูงสุดที่แต่ละเงินกู้เคยชำระล่าช้า
 
-## วิธีการแก้ปัญหา
+## การติดตั้ง (Installation)
+1. Clone the repo
+
+    ```bash
+    git clone https://github.com/ramath-x/loan-late-payment-analysis.git
+    cd loan-late-payment-analysis/
+    ```
+2. Run docker
+
+    ```bash
+     docker-compose up -d
+    ```
+
+2. เชื่อมต่อ data base (Mysql)
+
+      HOST: localhost
+      DATABASE: finance
+      USER: user
+      PASSWORD: user123
+      PORTS: 3306
 
 เราใช้ Common Table Expressions (CTEs) เพื่อประมวลผลข้อมูลเป็นขั้นตอน:
 
@@ -26,7 +45,7 @@
 CREATE TABLE `transaction` (
     id INT AUTO_INCREMENT PRIMARY KEY,
     loan_id VARCHAR(255),
-    effective_date TIMESTAMP, -- ใช้ TIMESTAMP สำหรับ MySQL
+    effective_date TIMESTAMP, 
     arrears_amount DECIMAL(18,2)
 );
 
