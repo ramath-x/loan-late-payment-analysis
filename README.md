@@ -21,19 +21,15 @@
      docker-compose up -d
     ```
 
-2. เชื่อมต่อ data base (Mysql)
+3. เชื่อมต่อ data base (Mysql)
 
-      HOST: localhost
-      DATABASE: finance
-      USER: user
-      PASSWORD: user123
-      PORTS: 3306
+    -  HOST: localhost
+    -  DATABASE: finance
+    -  USER: user
+    -  PASSWORD: user123
+    -  PORTS: 3306
 
-เราใช้ Common Table Expressions (CTEs) เพื่อประมวลผลข้อมูลเป็นขั้นตอน:
 
-1. `late_payments`: ระบุการชำระเงินล่าช้าโดยเปรียบเทียบยอดค้างชำระปัจจุบันกับก่อนหน้า
-2. `delinquency_periods`: กรองช่วงเวลาที่มีการชำระล่าช้าต่อเนื่องออก
-3. `arrears_history`: คำนวณวันเริ่มต้นและสิ้นสุดของแต่ละช่วงการชำระล่าช้า
 
 คำสั่ง SQL สุดท้ายจะรวมข้อมูลเหล่านี้เพื่อสร้างสถิติที่ต้องการ
 
@@ -162,4 +158,11 @@ CALL get_arrears_history
 
 ```
 
-## อธิบาย SQL
+- รูปผลลัพธ์
+![Screenshot of the application](images/result_query.png)
+## อธิบาย 
+เราใช้ Common Table Expressions (CTEs) เพื่อประมวลผลข้อมูลเป็นขั้นตอน:
+
+1. `late_payments`: ระบุการชำระเงินล่าช้าโดยเปรียบเทียบยอดค้างชำระปัจจุบันกับก่อนหน้า
+2. `delinquency_periods`: กรองช่วงเวลาที่มีการชำระล่าช้าต่อเนื่องออก
+3. `arrears_history`: คำนวณวันเริ่มต้นและสิ้นสุดของแต่ละช่วงการชำระล่าช้า
